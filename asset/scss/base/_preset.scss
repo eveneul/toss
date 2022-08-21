@@ -1,0 +1,32 @@
+.blind {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+}
+
+.inner {
+	width: 92%;
+	margin: 0 auto;
+	max-width: calc(100% - 48px);
+}
+
+.bgc-f {
+	background-color: $bgc-w;
+}
+
+.bgc-g {
+	background-color: $bgc-g;
+}
+
+section {
+	width: 100%;
+}
+
+.inner-s {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 50px;
+}
