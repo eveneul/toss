@@ -1,21 +1,6 @@
 $(function () {
 	// 헤더 스크롤
 
-	// $(window).scroll(function (e) {
-	// 	let scrollVal = $(this).scrollTop();
-	// 	console.log(scrollVal);
-
-	// 	if (scrollVal <= 10) {
-	// 		gsap.to('.header', {
-	// 			'background-color': 'transparent',
-	// 		});
-	// 	} else {
-	// 		gsap.to('.header', {
-	// 			yPercent: -100,
-	// 		});
-	// 	}
-	// });
-
 	const headerAni = gsap
 		.from('.header', {
 			yPercent: -100,
@@ -84,51 +69,84 @@ $(function () {
 
 	// about 텍스트 한줄씩 올라오고 (스크롤), 카운트
 
-	function numCount() {
-		$('.about-item .item-num span').each(function () {
-			$(this)
-				.prop('Counter', 0)
-				.animate(
-					{ Counter: $(this).text() },
-					{
-						duration: 3000,
-						easing: 'swing',
-						step: function (now) {
-							$(this).text(Math.ceil(now));
-						},
-					}
-				);
-		});
+	function format_number(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	}
 
-	$('.about-item').each((idx, el) => {
-		gsap.from(el, {
-			opacity: 0,
-			y: 50,
+	$('.about-item .num').each(function (idx, el) {
+		const value = {
+			val: $(this).text(),
+		};
+
+		const numEffect = gsap.timeline({
 			scrollTrigger: {
 				trigger: el,
-				start: 'top center',
+				start: 'top 80%',
 				end: '+=100',
 				// markers: true,
 			},
-			// onEnter: () => {
-			// 	const num = $(this).find('.item-num span');
-			// 	console.log(num);
-			// 	num.prop('Counter', 0).animate(
-			// 		{ Counter: num.text() },
-			// 		{
-			// 			duration: 3000,
-			// 			easing: 'swing',
-			// 			step: function (now) {
-			// 				$(this).text(Math.ceil(now));
-			// 			},
-			// 		}
-			// 	);
-			// },
 		});
+		numEffect
+			.addLabel('a')
+			.from(
+				value,
+				{
+					duration: 2,
+					ease: 'circ.out',
+					val: 0,
+					roundProps: 'val',
+					onUpdate: function () {
+						el.innerText = format_number(value.val);
+					},
+				},
+				'a'
+			)
+			.from(
+				$(this).parents('.about-item'),
+				{
+					opacity: 0,
+					y: 50,
+				},
+				'a'
+			);
 	});
 
 	// 서비스 각 섹션별 텍스트 위로 올라오게
+
+	$('.sc-service .title-area').each(function (idx, el) {
+		const child = $(this).find('> *');
+
+		gsap.from(child, {
+			scrollTrigger: {
+				trigger: el,
+				start: 'top 80%',
+				// markers: true,
+			},
+			opacity: 0,
+			yPercent: 50,
+			stagger: 0.2,
+		});
+	});
+
+	// 송금
+
+	$('.wire .text-item').each(function (i, el) {
+		const child = $(this).find('> *');
+
+		gsap.to(child, {
+			scrollTrigger: {
+				trigger: el,
+				start: 'top 80%',
+				// markers: true,
+			},
+			onEneter: () => {
+				$('.wire .img-list .img-item')
+					.removeClass('active')
+					.eq(i)
+					.addClass('active');
+			},
+		});
+	});
 
 	// 투자
 
@@ -142,26 +160,36 @@ $(function () {
 		},
 	});
 
-	//
+	// 가로 스크롤
 
-	let visionArr = gsap.utils.toArray('.vision-item');
+	let totalWidth = 0;
+	const visionEls = $('.vision-item');
+	const visionElWidth = $('.vision-item').innerWidth();
+	const visionItemW = $('.vision-item').width() / 2;
 
-	// gsap.to('.vision-list', {
-	// 	xPercent: -85,
-	// });
+	totalWidth = (visionEls.length * visionElWidth) / 2 - visionItemW;
 
-	// gsap.to(visionArr, {
-	// 	xPercent: -50 * (visionArr.length - 1),
-	// 	ease: 'none',
-	// 	scrollTrigger: {
-	// 		trigger: '.vision-list',
-	// 		pin: true,
-	// 		scrub: 1,
-	// 		snap: 1 / (visionArr.length - 1),
-	// 		// base vertical scrolling on how wide the container is so it feels more natural.
-	// 		end: 'bottom top',
-	// 	},
-	// });
+	basePosition();
+
+	gsap.to('.vision-list', {
+		x: -totalWidth,
+		scrollTrigger: {
+			trigger: '.sc-vision',
+			start: 'bottom bottom',
+			end: '+=300%',
+			scrub: true,
+			pin: true,
+			markers: true,
+		},
+	});
+
+	function basePosition() {
+		const innerW = $('.sc-vision .inner-s').width() / 2;
+
+		gsap.set('.vision-list', {
+			x: innerW - visionItemW,
+		});
+	}
 
 	// 무한 롤링 배너 (배너 클론으로 복사)
 
@@ -227,15 +255,27 @@ $(function () {
 
 	//
 
-	gsap.to('.sc-about .bg', {
-		'scrollTrigger': {
+	const bgEffect = gsap.timeline({
+		scrollTrigger: {
 			trigger: '.sc-about',
 			start: 'top bottom',
-			end: 'center 70%',
+			end: 'bottom 20%',
 			// markers: true,
 			scrub: true,
 		},
-		'width': '100%',
-		'border-radius': 0,
 	});
+
+	bgEffect
+		.to('.sc-about .bg', {
+			'width': '100%',
+			'border-radius': 0,
+		})
+		.to('.sc-about .bg', {
+			'width': '100%',
+			'border-radius': 0,
+		})
+		.to('.sc-about .bg', {
+			'width': '80%',
+			'border-radius': 30,
+		});
 });
