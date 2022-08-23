@@ -1,4 +1,6 @@
 @charset "UTF-8";
+/*반응형, 브라우저 크기가 767px 이하일때*/
+/*반응형, 브라우저 크기가 768이상, 1023px 이하일때*/
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 * {
   margin: 0;
@@ -515,6 +517,9 @@ section {
   font-weight: 700;
   line-height: 1.4;
 }
+.sc-service .wire .inner-s {
+  align-items: flex-start;
+}
 .sc-service .wire .group-left {
   width: 40%;
 }
@@ -553,8 +558,7 @@ section {
   width: 50%;
   position: -webkit-sticky;
   position: sticky;
-  top: 50%;
-  height: 100vh;
+  top: 0;
 }
 .sc-service .credit .credit-list {
   display: flex;
@@ -763,22 +767,28 @@ section {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  transform: translateX(350px);
-  background-color: red;
 }
 .sc-vision .vision-item {
-  position: relative;
-  max-width: 458px;
-  height: 523px;
-}
-.sc-vision .vision-item + .vision-item {
-  margin-left: 44px;
-}
-.sc-vision .vision-item img {
-  border-radius: 22px;
+  width: 40vw;
+  padding: 0 20px;
 }
 .sc-vision .vision-item a {
+  position: relative;
   display: block;
+  padding-bottom: 120%;
+}
+.sc-vision .vision-item .bg-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.sc-vision .vision-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .sc-vision .text-area {
   position: absolute;

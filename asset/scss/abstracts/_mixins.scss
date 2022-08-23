@@ -1,18 +1,38 @@
-
-
-
 @mixin ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 @mixin multi-ellipsis($font-size, $line-height, $lines) {
-    font-size: $font-size;
-    line-height: $line-height;
-    max-height: $line-height * $lines;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: $lines;
-    -webkit-box-orient: vertical; /* autoprefixer: off */
+	font-size: $font-size;
+	line-height: $line-height;
+	max-height: $line-height * $lines;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: $lines;
+	-webkit-box-orient: vertical; /* autoprefixer: off */
+}
+
+// 768 태블릿
+
+// 320을 보고 모바일 구현
+
+// 1025px에서 깨지는 것 없으면 1024px 이상에서 작업 x
+
+$tablet: 1024px;
+$mobile: 768px;
+
+/*반응형, 브라우저 크기가 767px 이하일때*/
+@mixin mobile {
+	@media (max-width: $mobile) {
+		@content;
+	}
+}
+
+/*반응형, 브라우저 크기가 768이상, 1023px 이하일때*/
+@mixin tablet {
+	@media (max-width: $tablet) {
+		@content;
+	}
 }
