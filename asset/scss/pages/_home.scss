@@ -1,3 +1,16 @@
+.m-menu-area {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	z-index: 2;
+	pointer-events: none;
+}
+
 .sc-visual {
 	position: relative;
 	width: 100%;
@@ -68,10 +81,17 @@
 		strong {
 			color: $blue;
 		}
+
+		@include mobile {
+			font-size: 32px;
+		}
 	}
 
 	.download-area {
 		display: flex;
+		@include mobile {
+			display: block;
+		}
 		a {
 			display: flex;
 			align-items: center;
@@ -82,6 +102,11 @@
 			margin-right: 10px;
 			border-radius: 8px;
 			background-color: rgba(0, 12, 30, 0.7);
+			@include mobile {
+				& + a {
+					margin-top: 20px;
+				}
+			}
 		}
 
 		img {
@@ -114,6 +139,10 @@
 		@include tablet {
 			font-size: 28px;
 			line-height: 1.8;
+		}
+
+		@include mobile {
+			font-size: 14px;
 		}
 	}
 }
@@ -156,11 +185,17 @@
 			font-size: 28px;
 			font-weight: 500;
 			color: #fff;
+			@include mobile {
+				font-size: 22px;
+			}
 		}
 		.item-num {
 			font-size: 48px;
 			font-weight: 700;
 			color: $blue;
+			@include mobile {
+				font-size: 32px;
+			}
 		}
 
 		& + .about-item {
@@ -181,11 +216,17 @@
 	}
 	.inner {
 		width: 80%;
+		@include mobile {
+			width: 100%;
+		}
 	}
 	.title-area {
 		font-family: $font-kr;
 		letter-spacing: -0.05em;
 		margin-bottom: 100px;
+		@include mobile {
+			margin-bottom: 50px;
+		}
 		.title {
 			color: $blue;
 			font-size: 28px;
@@ -202,6 +243,10 @@
 			line-height: 1.4;
 			@include tablet {
 				font-size: 36px;
+			}
+
+			@include mobile {
+				font-size: 22px;
 			}
 		}
 	}
@@ -221,6 +266,9 @@
 			margin-bottom: 100px;
 			@include tablet {
 				flex-direction: column-reverse;
+			}
+			@include mobile {
+				margin-bottom: 50px;
 			}
 		}
 
@@ -255,6 +303,9 @@
 				font-size: 32px;
 				color: rgb(51, 61, 75);
 				line-height: 1.4;
+				@include mobile {
+					font-size: 22px;
+				}
 			}
 			.desc {
 				font-size: 16px;
@@ -265,6 +316,9 @@
 				@include tablet {
 					font-size: 22px;
 				}
+				@include mobile {
+					font-size: 15px;
+				}
 			}
 		}
 
@@ -274,6 +328,10 @@
 				width: 100%;
 				margin-bottom: 50px;
 				transform: translateX(-30px);
+			}
+			@include mobile {
+				transform: none;
+				margin-bottom: 30px;
 			}
 		}
 	}
@@ -301,6 +359,9 @@
 			}
 			@include tablet {
 				margin-bottom: 100px;
+			}
+			@include mobile {
+				margin-bottom: 50px;
 			}
 		}
 
@@ -333,6 +394,9 @@
 				@include tablet {
 					font-size: 36px;
 				}
+				@include mobile {
+					font-size: 26px;
+				}
 			}
 
 			.desc {
@@ -342,6 +406,9 @@
 				font-size: 16px;
 				@include tablet {
 					font-size: 22px;
+				}
+				@include mobile {
+					font-size: 16px;
 				}
 			}
 		}
@@ -386,6 +453,9 @@
 			font-size: 24px;
 			font-weight: 700;
 			margin-bottom: 30px;
+			@include mobile {
+				font-size: 16px;
+			}
 		}
 
 		.desc {
@@ -395,6 +465,10 @@
 			color: $gray-t;
 			@include tablet {
 				font-size: 24px;
+			}
+
+			@include mobile {
+				font-size: 14px;
 			}
 		}
 
@@ -417,6 +491,11 @@
 			@include tablet {
 				transform: translateY(-100px);
 				height: 850px;
+			}
+			@include mobile {
+				transform: translateX(-30px) translateY(-85px);
+				width: 400px;
+				height: 570px;
 			}
 		}
 
@@ -453,7 +532,8 @@
 			position: relative;
 			justify-content: center;
 			align-items: center;
-			@include tablet {
+			@include mobile {
+				display: block;
 			}
 		}
 
@@ -461,7 +541,11 @@
 			position: relative;
 			width: 600px;
 			height: 837px;
-			@include tablet {
+			@include mobile {
+				width: 400px;
+				height: 474px;
+				margin-top: 100px;
+				transform: translateX(-45px);
 			}
 		}
 
@@ -472,6 +556,9 @@
 			width: 57%;
 			height: auto;
 			transform: translateX(-50%);
+			@include mobile {
+				top: -30px;
+			}
 		}
 
 		.ico-box {
@@ -480,6 +567,9 @@
 			left: 57%;
 			transform: translateX(-50%);
 			display: flex;
+			@include mobile {
+				bottom: 33px;
+			}
 
 			img {
 				width: 178px;
@@ -487,6 +577,10 @@
 
 				& + img {
 					margin-left: 16px;
+				}
+				@include mobile {
+					width: 110px;
+					height: 110px;
 				}
 			}
 		}
@@ -517,10 +611,19 @@
 			@include tablet {
 				width: 110%;
 				z-index: 2;
+				font-size: 18px;
 				p {
 					&:last-child {
 						text-align: right;
 					}
+				}
+			}
+
+			@include mobile {
+				position: relative;
+				display: block;
+				p + p {
+					margin-top: 50px;
 				}
 			}
 		}
@@ -544,12 +647,18 @@
 				font-weight: 700;
 				font-size: 36px;
 				margin-bottom: 20px;
+				@include mobile {
+					font-size: 24px;
+				}
 			}
 
 			.sub-title {
 				color: $gray-t;
 				font-size: 22px;
 				font-weight: 500;
+				@include mobile {
+					font-size: 16px;
+				}
 			}
 		}
 	}
@@ -581,6 +690,10 @@
 			height: 100%;
 			object-fit: cover;
 		}
+
+		@include tablet {
+			width: 100vw;
+		}
 	}
 
 	.text-area {
@@ -602,6 +715,9 @@
 			color: #333d4b;
 			margin-bottom: 20px;
 			letter-spacing: -0.05em;
+			@include mobile {
+				font-size: 24px;
+			}
 		}
 
 		i {
@@ -622,8 +738,16 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 60vh;
+	height: 100vh;
 	overflow: hidden;
+
+	@include tablet {
+		height: 60vh;
+	}
+
+	@include mobile {
+		height: 100vh;
+	}
 
 	.canvas {
 		position: absolute;
@@ -662,6 +786,9 @@
 		color: $text;
 		font-weight: 700;
 		z-index: 2;
+		@include mobile {
+			font-size: 18px;
+		}
 	}
 
 	@keyframes rolling {

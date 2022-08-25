@@ -1,39 +1,57 @@
 $(function () {
 	// 헤더 스크롤
 
-	const headerAni = gsap
-		.from('.header', {
-			yPercent: -100,
-			paused: true,
-			duration: 0.4,
-		})
-		.progress(1);
+	if ($(window).width() >= 769) {
+		//768px 이상
+		const headerAni = gsap
+			.from('.header', {
+				yPercent: -100,
+				paused: true,
+				duration: 0.4,
+			})
+			.progress(1);
 
-	ScrollTrigger.create({
-		start: 'top top',
-		end: 99999,
-		onUpdate: (self) => {
-			self.direction === -1 ? headerAni.play() : headerAni.reverse();
-		},
-	});
+		ScrollTrigger.create({
+			start: 'top top',
+			end: 99999,
+			onUpdate: (self) => {
+				self.direction === -1 ? headerAni.play() : headerAni.reverse();
+			},
+		});
 
-	$(window).scroll(function (e) {
-		let scrollVal = $(this).scrollTop();
+		$(window).scroll(function (e) {
+			let scrollVal = $(this).scrollTop();
 
-		if (scrollVal <= 10) {
-			gsap.to('.header', {
-				'background-color': 'rgba(255,255,255, 0)',
-				'backdrop-filter': 'none',
-				'border-bottom': 'none',
-			});
-		} else {
-			gsap.to('.header', {
-				'background-color': 'rgba(255,255,255, 0.9)',
-				'backdrop-filter': 'blur(10px)',
+			if (scrollVal <= 10) {
+				gsap.to('.header', {
+					'background-color': 'rgba(255,255,255, 0)',
+					'backdrop-filter': 'none',
+					'border-bottom': 'none',
+				});
+			} else {
+				gsap.to('.header', {
+					'background-color': 'rgba(255,255,255, 0.9)',
+					'backdrop-filter': 'blur(10px)',
 
-				'border-bottom': '1px solid #e5e8ea',
-			});
-		}
+					'border-bottom': '1px solid #e5e8ea',
+				});
+			}
+		});
+	} else if ($(window).width() <= 768) {
+		//767 이하
+
+		$(window).scroll(function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+		});
+	}
+
+	// 햄버거 매뉴
+
+	$('.m-btn').click(function () {
+		$(this).toggleClass('active');
+		$('.header').toggleClass('active');
+		$('html, body').css({ overflow: 'hidden', height: '100%' });
 	});
 
 	// 메인 동영상 재생 2.5초 후 텍스트 올라오게

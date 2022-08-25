@@ -53,6 +53,9 @@
 			width: 20%;
 			margin-bottom: 20px;
 		}
+		@include mobile {
+			width: 40%;
+		}
 	}
 
 	.sns-list {
