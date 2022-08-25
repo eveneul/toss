@@ -173,8 +173,8 @@
 			&.active {
 				span {
 					&:nth-of-type(1) {
-						transform-origin: bottom;
-						transform: rotatez(45deg) translate(1px, -2px);
+						transform-origin: bottom right;
+						transform: rotateZ(45deg) translate(4px, 6px);
 					}
 
 					&:nth-of-type(2) {
@@ -183,9 +183,9 @@
 					}
 
 					&:nth-of-type(3) {
-						transform-origin: bottom;
+						transform-origin: top left;
 						width: 50%;
-						transform: translate(12px, -1px) rotateZ(45deg);
+						transform: translate(15px, -8px) rotateZ(45deg);
 					}
 				}
 			}
