@@ -373,7 +373,6 @@ section {
     display: flex;
     flex-direction: column;
     width: 30px;
-    display: block;
     cursor: pointer;
     z-index: 2;
   }
