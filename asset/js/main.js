@@ -43,13 +43,24 @@ $(function () {
 		y: 100,
 	});
 
-	setTimeout(() => {
+	if ($(window).width() >= 769) {
+		//768px 이상
+		setTimeout(() => {
+			gsap.to('.sc-visual .content-area', {
+				duration: 2,
+				y: 0,
+				opacity: 1,
+			});
+		}, 2800);
+	} else if ($(window).width() <= 768) {
+		//767 이하
+		console.log('767이하?');
 		gsap.to('.sc-visual .content-area', {
 			duration: 2,
 			y: 0,
 			opacity: 1,
 		});
-	}, 2800);
+	}
 
 	// Info 텍스트 한 줄씩 올라오게
 

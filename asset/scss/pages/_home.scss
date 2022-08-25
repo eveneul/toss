@@ -15,7 +15,10 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		// display: none;
+		display: block;
+		@include tablet {
+			display: none;
+		}
 	}
 
 	.img-area {
@@ -25,6 +28,9 @@
 		width: 100%;
 		height: 100%;
 		display: none;
+		@include tablet {
+			display: block;
+		}
 	}
 
 	.bg {
@@ -104,6 +110,11 @@
 		font-size: 32px;
 		line-height: 1.5;
 		letter-spacing: -0.025em;
+
+		@include tablet {
+			font-size: 28px;
+			line-height: 1.8;
+		}
 	}
 }
 
@@ -180,12 +191,18 @@
 			font-size: 28px;
 			font-weight: 700;
 			margin-bottom: 20px;
+			@include tablet {
+				font-size: 22px;
+			}
 		}
 		.title-desc {
 			color: $text;
 			font-size: 50px;
 			font-weight: 700;
 			line-height: 1.4;
+			@include tablet {
+				font-size: 36px;
+			}
 		}
 	}
 
@@ -202,11 +219,17 @@
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: 100px;
+			@include tablet {
+				flex-direction: column-reverse;
+			}
 		}
 
 		.text-area {
 			align-self: center;
 			width: calc(50% - 30px);
+			@include tablet {
+				width: 100%;
+			}
 		}
 
 		.group-top {
@@ -239,17 +262,28 @@
 				color: $gray-t;
 				margin-top: 20px;
 				line-height: 1.7;
+				@include tablet {
+					font-size: 22px;
+				}
 			}
 		}
 
 		.img-area {
 			width: calc(50% - 30px);
+			@include tablet {
+				width: 100%;
+				margin-bottom: 50px;
+				transform: translateX(-30px);
+			}
 		}
 	}
 
 	.credit {
 		.credit-list {
 			display: flex;
+			@include tablet {
+				flex-direction: column;
+			}
 		}
 
 		.credit-item {
@@ -259,10 +293,14 @@
 			padding: 30px 20px;
 			border-radius: 20px;
 			transition: all 0.5s;
+
 			&:hover {
 				background-color: #fff;
 				box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
 				transform: translateY(-30px);
+			}
+			@include tablet {
+				margin-bottom: 100px;
 			}
 		}
 
@@ -276,6 +314,10 @@
 				height: 100%;
 				object-fit: cover;
 			}
+			@include tablet {
+				width: 200px;
+				height: 200px;
+			}
 		}
 
 		.text-area {
@@ -288,6 +330,9 @@
 				color: rgb(51, 61, 75);
 				line-height: 1.4;
 				margin-bottom: 20px;
+				@include tablet {
+					font-size: 36px;
+				}
 			}
 
 			.desc {
@@ -295,6 +340,9 @@
 				line-height: 1.4;
 				font-weight: 500;
 				font-size: 16px;
+				@include tablet {
+					font-size: 22px;
+				}
 			}
 		}
 	}
@@ -305,6 +353,9 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: start;
+			@include tablet {
+				flex-direction: column-reverse;
+			}
 		}
 
 		.text-area {
@@ -342,6 +393,9 @@
 			font-size: 20px;
 			font-weight: 500;
 			color: $gray-t;
+			@include tablet {
+				font-size: 24px;
+			}
 		}
 
 		.group-left {
@@ -349,14 +403,21 @@
 			flex-direction: column;
 			justify-content: space-between;
 			width: 40%;
+			@include tablet {
+				width: 100%;
+			}
 		}
 
 		.group-right {
 			position: relative;
 			width: 600px;
-			height: 800px;
+			height: 500px;
 			opacity: 1;
-			transform: translateX(110px) translateY(-70px);
+			transform: translateX(110px) translateY(-450px);
+			@include tablet {
+				transform: translateY(-100px);
+				height: 850px;
+			}
 		}
 
 		.screen-img {
@@ -371,7 +432,10 @@
 
 				&.active {
 					opacity: 1;
-					transform: translate(-50%, -41%);
+					transform: translate(-50%, -21%);
+					@include tablet {
+						transform: translate(-50%, -44%);
+					}
 				}
 			}
 		}
@@ -389,13 +453,16 @@
 			position: relative;
 			justify-content: center;
 			align-items: center;
+			@include tablet {
+			}
 		}
 
 		.img-area {
 			position: relative;
 			width: 600px;
 			height: 837px;
-			margin: 0 auto;
+			@include tablet {
+			}
 		}
 
 		.screen-img {
@@ -447,6 +514,15 @@
 			font-weight: 600;
 			line-height: 1.5;
 			letter-spacing: -0.025em;
+			@include tablet {
+				width: 110%;
+				z-index: 2;
+				p {
+					&:last-child {
+						text-align: right;
+					}
+				}
+			}
 		}
 	}
 }
@@ -488,7 +564,6 @@
 		padding: 0 20px;
 		a {
 			position: relative;
-			// background-color: #f00;
 			display: block;
 			padding-bottom: 120%;
 		}
@@ -547,7 +622,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	height: 60vh;
 	overflow: hidden;
 
 	.canvas {
