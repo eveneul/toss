@@ -370,7 +370,6 @@ section {
 }
 @media (max-width: 767px) {
   .header .m-btn {
-    display: none;
     display: flex;
     flex-direction: column;
     width: 30px;

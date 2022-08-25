@@ -1,17 +1,7 @@
 $(function () {
+	const mobile = 768;
+
 	// 헤더 스크롤
-
-	// if ($(window).width() > 768) {
-	// 	//768px 이상
-
-	// } else if ($(window).width() <= 768) {
-	// 	//767 이하
-
-	// 	$(window).scroll(function (e) {
-	// 		e.preventDefault();
-	// 		e.stopPropagation();
-	// 	});
-	// }
 
 	const headerAni = gsap
 		.from('.header', {
@@ -76,7 +66,7 @@ $(function () {
 				opacity: 1,
 			});
 		}, 2800);
-	} else if ($(window).width() <= 768) {
+	} else if ($(window).width() <= mobile) {
 		//767 이하
 		console.log('767이하?');
 		gsap.to('.sc-visual .content-area', {
@@ -86,6 +76,12 @@ $(function () {
 		});
 	}
 
+	//메인 동영상
+
+	if ($(window).width() <= mobile) {
+		const video = $('.video-area video');
+		video.get(0).pause();
+	}
 	// Info 텍스트 한 줄씩 올라오게
 
 	const infoText = $('.sc-info .sc-title p');
