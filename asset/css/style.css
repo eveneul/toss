@@ -233,7 +233,7 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   padding: 20px 0;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-size: 14px;
@@ -474,19 +474,6 @@ section {
 }
 .footer .sns-item + .sns-item {
   margin-left: 15px;
-}
-
-.m-menu-area {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  z-index: 2;
-  pointer-events: none;
 }
 
 .sc-visual {

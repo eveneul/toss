@@ -51,7 +51,11 @@ $(function () {
 	$('.m-btn').click(function () {
 		$(this).toggleClass('active');
 		$('.header').toggleClass('active');
-		$('html, body').css({ overflow: 'hidden', height: '100%' });
+		if ($('.header').hasClass('active')) {
+			$('html, body').css({ overflow: 'hidden', height: '100%' });
+		} else {
+			$('html, body').css({ overflow: 'auto', height: 'auto' });
+		}
 	});
 
 	// 메인 동영상 재생 2.5초 후 텍스트 올라오게
