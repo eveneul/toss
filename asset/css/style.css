@@ -228,7 +228,7 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   padding: 20px 0;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-size: 14px;
@@ -255,8 +255,20 @@ section {
   display: flex;
 }
 .header .menu-item {
+  position: relative;
   transition: transform 0.3s;
   font-weight: 500;
+}
+.header .menu-item::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #3182f6;
+  transition: width 0.3s;
 }
 .header .menu-item a {
   display: block;
@@ -265,8 +277,8 @@ section {
 .header .menu-item + .menu-item {
   margin-left: 20px;
 }
-.header .menu-item:hover {
-  transform: translateY(-5px);
+.header .menu-item:hover::after {
+  width: 100%;
 }
 .header .util-btn {
   position: relative;
@@ -518,47 +530,51 @@ section {
   line-height: 1.4;
 }
 .sc-service .wire .inner-s {
-  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
-.sc-service .wire .group-left {
-  width: 40%;
+.sc-service .wire .wire-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
 }
-.sc-service .wire .text-item + .text-item {
-  margin-top: 150px;
+.sc-service .wire .text-area {
+  align-self: center;
+  width: calc(50% - 30px);
 }
-.sc-service .wire .sub-title-area {
+.sc-service .wire .group-top {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
-.sc-service .wire .sub-title-area svg {
+.sc-service .wire .group-top svg {
   width: 24px;
   height: 24px;
 }
-.sc-service .wire .sub-title-area .sub-title {
+.sc-service .wire .group-top .title {
   font-size: 18px;
   color: #3182f6;
   font-weight: 600;
   margin-left: 5px;
 }
-.sc-service .wire .desc-area .desc {
+.sc-service .wire .group-bottom .sub-title {
   font-weight: 700;
   font-size: 32px;
   color: rgb(51, 61, 75);
   line-height: 1.4;
 }
-.sc-service .wire .desc-area .sub-desc {
+.sc-service .wire .group-bottom .desc {
   font-size: 16px;
   font-weight: 500;
   color: #6b7785;
   margin-top: 20px;
   line-height: 1.7;
 }
-.sc-service .wire .group-right {
-  width: 50%;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+.sc-service .wire .img-area {
+  width: calc(50% - 30px);
 }
 .sc-service .credit .credit-list {
   display: flex;
@@ -722,7 +738,7 @@ section {
 }
 .sc-service .investment .desc-area {
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -731,9 +747,9 @@ section {
   width: 80%;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   color: #181f28;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.3;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.5;
   letter-spacing: -0.025em;
 }
 

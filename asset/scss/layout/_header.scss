@@ -2,7 +2,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 100vw;
 	padding: 20px 0;
 	font-family: $font-kr;
 	font-size: 14px;
@@ -34,8 +34,21 @@
 	}
 
 	.menu-item {
+		position: relative;
 		transition: transform 0.3s;
 		font-weight: 500;
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: -3px;
+			left: 0;
+			width: 0%;
+			height: 2px;
+			background-color: $blue;
+			transition: width 0.3s;
+		}
 		a {
 			display: block;
 			mix-blend-mode: difference;
@@ -45,7 +58,9 @@
 		}
 
 		&:hover {
-			transform: translateY(-5px);
+			&::after {
+				width: 100%;
+			}
 		}
 	}
 
