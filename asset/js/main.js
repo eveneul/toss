@@ -83,7 +83,6 @@ $(function () {
 				trigger: el,
 				start: 'top 80%',
 				end: '+=100',
-				// markers: true,
 			},
 		});
 		numEffect
@@ -120,7 +119,6 @@ $(function () {
 			scrollTrigger: {
 				trigger: el,
 				start: 'top 80%',
-				// markers: true,
 			},
 			opacity: 0,
 			yPercent: 50,
@@ -130,20 +128,14 @@ $(function () {
 
 	// 송금
 
-	$('.wire .text-item').each(function (i, el) {
-		const child = $(this).find('> *');
-
-		gsap.to(child, {
+	$('.wire-item').each(function (i, el) {
+		gsap.from(el, {
+			opacity: 0,
+			y: 100,
+			duration: 1,
 			scrollTrigger: {
 				trigger: el,
-				start: 'top 80%',
-				// markers: true,
-			},
-			onEneter: () => {
-				$('.wire .img-list .img-item')
-					.removeClass('active')
-					.eq(i)
-					.addClass('active');
+				start: 'top 70%',
 			},
 		});
 	});
@@ -179,7 +171,6 @@ $(function () {
 			end: '+=300%',
 			scrub: true,
 			pin: true,
-			markers: true,
 		},
 	});
 
@@ -253,14 +244,13 @@ $(function () {
 		ctx.drawImage(images[card.frame], 0, 0);
 	}
 
-	//
+	// 숫자 카운트 부분 배경 애니메이션
 
 	const bgEffect = gsap.timeline({
 		scrollTrigger: {
 			trigger: '.sc-about',
 			start: 'top bottom',
 			end: 'bottom 20%',
-			// markers: true,
 			scrub: true,
 		},
 	});
@@ -278,4 +268,15 @@ $(function () {
 			'width': '80%',
 			'border-radius': 30,
 		});
+
+	// 투자부분 텍스트
+
+	gsap.from('.investment .desc-area', {
+		opacity: 0,
+		y: 100,
+		scrollTrigger: {
+			trigger: '.investment .mock-up',
+			start: 'top 40%',
+		},
+	});
 });
