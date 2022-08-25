@@ -25,6 +25,7 @@
 
 		@include mobile {
 			width: 100%;
+			max-width: 100%;
 			background-color: #fff;
 			padding: 20px;
 		}
@@ -141,7 +142,9 @@
 	}
 
 	.m-btn {
+		display: none;
 		@include mobile {
+			display: none;
 			display: flex;
 			flex-direction: column;
 			width: 30px;

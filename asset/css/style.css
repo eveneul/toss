@@ -258,6 +258,7 @@ section {
 @media (max-width: 767px) {
   .header .inner {
     width: 100%;
+    max-width: 100%;
     background-color: #fff;
     padding: 20px;
   }
@@ -364,8 +365,12 @@ section {
   height: 15px;
   background-color: #d1d6db;
 }
+.header .m-btn {
+  display: none;
+}
 @media (max-width: 767px) {
   .header .m-btn {
+    display: none;
     display: flex;
     flex-direction: column;
     width: 30px;
@@ -964,30 +969,25 @@ section {
   flex-direction: column;
   justify-content: space-between;
   width: 40%;
+  margin-top: 470px;
 }
-@media (max-width: 1024px) {
+@media (max-width: 767px) {
   .sc-service .loan .group-left {
     width: 100%;
   }
 }
 .sc-service .loan .group-right {
   position: relative;
-  width: 600px;
+  flex: 1;
   height: 500px;
   opacity: 1;
   transform: translateX(110px) translateY(-450px);
 }
 @media (max-width: 1024px) {
   .sc-service .loan .group-right {
-    transform: translateY(-100px);
-    height: 850px;
-  }
-}
-@media (max-width: 767px) {
-  .sc-service .loan .group-right {
-    transform: translateX(-30px) translateY(-85px);
-    width: 400px;
-    height: 570px;
+    width: 326px;
+    height: 425px;
+    transform: translateX(0px) translateY(-60px);
   }
 }
 .sc-service .loan .screen-img img {
@@ -995,18 +995,13 @@ section {
   top: 50%;
   left: 50%;
   width: 57%;
-  transform: translate(-50%, -37%);
+  transform: translate(-50%, 10%);
   opacity: 0;
   transition: all 0.4s;
 }
 .sc-service .loan .screen-img img.active {
   opacity: 1;
-  transform: translate(-50%, -21%);
-}
-@media (max-width: 1024px) {
-  .sc-service .loan .screen-img img.active {
-    transform: translate(-50%, -44%);
-  }
+  transform: translate(-50%, 15%);
 }
 .sc-service .loan .mock-up {
   position: absolute;

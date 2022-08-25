@@ -14,18 +14,13 @@
 	-webkit-box-orient: vertical; /* autoprefixer: off */
 }
 
-// 768 태블릿
-
-// 320을 보고 모바일 구현
-
-// 1025px에서 깨지는 것 없으면 1024px 이상에서 작업 x
-
 $tablet: 1024px;
 $mobile: 768px;
+$mobile-s: 394px;
 
 /*반응형, 브라우저 크기가 767px 이하일때*/
 @mixin mobile {
-	@media (max-width: $mobile - 1px) {
+	@media (max-width: calc($mobile - 1px)) {
 		@content;
 	}
 }

@@ -464,25 +464,25 @@
 			flex-direction: column;
 			justify-content: space-between;
 			width: 40%;
-			@include tablet {
+			margin-top: 470px;
+			@include mobile {
 				width: 100%;
 			}
 		}
 
 		.group-right {
 			position: relative;
-			width: 600px;
+			flex: 1;
 			height: 500px;
 			opacity: 1;
 			transform: translateX(110px) translateY(-450px);
 			@include tablet {
-				transform: translateY(-100px);
-				height: 850px;
+				width: 326px;
+				height: 425px;
+				transform: translateX(0px) translateY(-60px);
 			}
+
 			@include mobile {
-				transform: translateX(-30px) translateY(-85px);
-				width: 400px;
-				height: 570px;
 			}
 		}
 
@@ -492,16 +492,13 @@
 				top: 50%;
 				left: 50%;
 				width: 57%;
-				transform: translate(-50%, -37%);
+				transform: translate(-50%, 10%);
 				opacity: 0;
 				transition: all 0.4s;
 
 				&.active {
 					opacity: 1;
-					transform: translate(-50%, -21%);
-					@include tablet {
-						transform: translate(-50%, -44%);
-					}
+					transform: translate(-50%, 15%);
 				}
 			}
 		}

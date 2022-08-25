@@ -1,50 +1,52 @@
 $(function () {
 	// 헤더 스크롤
 
-	if ($(window).width() >= 769) {
-		//768px 이상
-		const headerAni = gsap
-			.from('.header', {
-				yPercent: -100,
-				paused: true,
-				duration: 0.4,
-			})
-			.progress(1);
+	// if ($(window).width() > 768) {
+	// 	//768px 이상
 
-		ScrollTrigger.create({
-			start: 'top top',
-			end: 99999,
-			onUpdate: (self) => {
-				self.direction === -1 ? headerAni.play() : headerAni.reverse();
-			},
-		});
+	// } else if ($(window).width() <= 768) {
+	// 	//767 이하
 
-		$(window).scroll(function (e) {
-			let scrollVal = $(this).scrollTop();
+	// 	$(window).scroll(function (e) {
+	// 		e.preventDefault();
+	// 		e.stopPropagation();
+	// 	});
+	// }
 
-			if (scrollVal <= 10) {
-				gsap.to('.header', {
-					'background-color': 'rgba(255,255,255, 0)',
-					'backdrop-filter': 'none',
-					'border-bottom': 'none',
-				});
-			} else {
-				gsap.to('.header', {
-					'background-color': 'rgba(255,255,255, 0.9)',
-					'backdrop-filter': 'blur(10px)',
+	const headerAni = gsap
+		.from('.header', {
+			yPercent: -100,
+			paused: true,
+			duration: 0.4,
+		})
+		.progress(1);
 
-					'border-bottom': '1px solid #e5e8ea',
-				});
-			}
-		});
-	} else if ($(window).width() <= 768) {
-		//767 이하
+	ScrollTrigger.create({
+		start: 'top top',
+		end: 99999,
+		onUpdate: (self) => {
+			self.direction === -1 ? headerAni.play() : headerAni.reverse();
+		},
+	});
 
-		$(window).scroll(function (e) {
-			e.preventDefault();
-			e.stopPropagation();
-		});
-	}
+	$(window).scroll(function (e) {
+		let scrollVal = $(this).scrollTop();
+
+		if (scrollVal <= 10) {
+			gsap.to('.header', {
+				'background-color': 'rgba(255,255,255, 0)',
+				'backdrop-filter': 'none',
+				'border-bottom': 'none',
+			});
+		} else {
+			gsap.to('.header', {
+				'background-color': 'rgba(255,255,255, 0.9)',
+				'backdrop-filter': 'blur(10px)',
+
+				'border-bottom': '1px solid #e5e8ea',
+			});
+		}
+	});
 
 	// 햄버거 매뉴
 
