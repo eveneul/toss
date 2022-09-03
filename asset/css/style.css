@@ -1022,8 +1022,14 @@ section {
   top: 50%;
   left: 50%;
   width: 57%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -45%);
   z-index: 1;
+  opacity: 0;
+  transition: all 0.4s;
+}
+.sc-service .loan .screen-img img.active {
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 .sc-service .loan .mock-up {
   display: flex;

@@ -67,8 +67,6 @@ $(function () {
 			});
 		}, 2800);
 	} else if ($(window).width() <= mobile) {
-		//767 이하
-		console.log('767이하?');
 		gsap.to('.sc-visual .content-area', {
 			duration: 2,
 			y: 0,
@@ -221,8 +219,6 @@ $(function () {
 
 	const btns = $('.loan .sub-title-area span');
 	const imgs = $('.loan .screen-img img');
-	console.log(btns);
-	console.log(imgs);
 	btns.click(function (e) {
 		const tabId = $(this).data('tab');
 
