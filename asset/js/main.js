@@ -221,6 +221,8 @@ $(function () {
 
 	const btns = $('.loan .sub-title-area span');
 	const imgs = $('.loan .screen-img img');
+	console.log(btns);
+	console.log(imgs);
 	btns.click(function (e) {
 		const tabId = $(this).data('tab');
 

@@ -402,22 +402,35 @@
 	}
 
 	.loan {
-		position: relative;
 		.content-area {
+			position: relative;
 			display: flex;
+			flex-direction: column;
 			justify-content: space-between;
-			align-items: start;
+			width: 100%;
+			height: 100%;
+		}
+
+		.title-area {
+			margin-bottom: 210px;
+
 			@include tablet {
-				flex-direction: column-reverse;
+				margin-bottom: 50px;
+			}
+			@include mobile {
+				margin-bottom: 0;
 			}
 		}
 
 		.text-area {
+			width: 50%;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+			@include mobile {
+				width: 100%;
+			}
 		}
-
 		.sub-title-area {
 			span {
 				display: block;
@@ -439,7 +452,6 @@
 
 			font-size: 24px;
 			font-weight: 700;
-			margin-bottom: 30px;
 			@include mobile {
 				font-size: 16px;
 			}
@@ -450,6 +462,7 @@
 			font-size: 20px;
 			font-weight: 500;
 			color: $gray-t;
+			margin-top: 30px;
 			@include tablet {
 				font-size: 24px;
 			}
@@ -459,30 +472,43 @@
 			}
 		}
 
-		.group-left {
+		.img-area {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: -60px;
 			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			width: 40%;
-			margin-top: 470px;
+			justify-content: end;
+			align-items: end;
+			width: 600px;
+			height: auto;
 			@include mobile {
+				display: block;
+				position: relative;
+				top: 0;
+				left: 0;
+				transform: none;
 				width: 100%;
-			}
-		}
 
-		.group-right {
-			position: relative;
-			flex: 1;
-			height: 500px;
-			opacity: 1;
-			transform: translateX(110px) translateY(-450px);
-			@include tablet {
-				width: 326px;
-				height: 425px;
-				transform: translateX(0px) translateY(-60px);
+				height: auto;
 			}
 
 			@include mobile {
+				max-width: 375px;
+				margin-bottom: 30px;
+			}
+
+			.img-box {
+				display: block;
+				position: relative;
+				width: 600px;
+				height: 936px;
+
+				@include tablet {
+					width: 100%;
+					max-width: 375px;
+					height: 100%;
+				}
 			}
 		}
 
@@ -492,24 +518,20 @@
 				top: 50%;
 				left: 50%;
 				width: 57%;
-				transform: translate(-50%, 10%);
-				opacity: 0;
-				transition: all 0.4s;
-
-				&.active {
-					opacity: 1;
-					transform: translate(-50%, 15%);
-				}
+				transform: translate(-50%, -50%);
+				z-index: 1;
 			}
 		}
 
 		.mock-up {
-			position: absolute;
-			top: 0;
-			left: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			width: 100%;
+			z-index: 2;
 		}
 	}
-
 	.investment {
 		overflow: hidden;
 		.inner-s {
@@ -658,7 +680,7 @@
 		a {
 			position: relative;
 			display: block;
-			padding-bottom: 120%;
+			padding-bottom: 70vh;
 		}
 
 		.bg-area {

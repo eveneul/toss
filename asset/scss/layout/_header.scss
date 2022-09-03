@@ -8,7 +8,7 @@
 	font-size: 14px;
 	color: $text;
 	background-color: rgba($color: #fff, $alpha: 0);
-	z-index: 2;
+	z-index: 5;
 
 	@include mobile {
 		background-color: rgba($color: #fff, $alpha: 1);
